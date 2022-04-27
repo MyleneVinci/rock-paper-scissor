@@ -4,27 +4,22 @@ const userScore_span = document.getElementById("user-score");
 const computerScore_span = document.getElementById("computer-score");
 const scoreBoard_div = document.querySelector(".score-board");
 const result_div = document.querySelector(".result p");
-const rock_div = document.getElementById("r");
-const paper_div = document.getElementById("p");
-const scissors_div = document.getElementById("s");
+const rock_div = document.getElementById("rock");
+const paper_div = document.getElementById("paper");
+const scissors_div = document.getElementById("scissors");
 
 function getComputerChoice() {
-    const choices = ['r', 'p', 's'];
+    const choices = ['rock', 'paper', 'scissors'];
     const randomNumber = Math.floor(Math.random() * 3);
     return choices[randomNumber];
 }
 
-function convertToWord(letter) {
-    if(letter === "r") return "rock";
-    if(letter === "p") return "paper";
-    return "scissors";
-}
 
 function win(userChoice, computerChoice) {
     userScore++;
     userScore_span.innerHTML = userScore;
     computerScore_span.innerHTML = computerScore;
-    result_div.innerHTML = `${convertToWord(userChoice)} beats ${convertToWord(computerChoice)}. you win`
+    result_div.innerHTML = `${userChoice} beats ${computerChoice}. you win`
     document.getElementById(userChoice).classList.add('green-glow');
     setTimeout(() => { document.getElementById(userChoice).classList.remove('green-glow')}, 300);
     console.log('win');
@@ -34,7 +29,7 @@ function lose(userChoice, computerChoice) {
     computerScore++;
     userScore_span.innerHTML = userScore;
     computerScore_span.innerHTML = computerScore;
-    result_div.innerHTML = `${convertToWord(userChoice)} loses to ${convertToWord(computerChoice)}. you lost`
+    result_div.innerHTML = `${userChoice} loses to ${computerChoice}. you lost`
     document.getElementById(userChoice).classList.add('red-glow');
     setTimeout(() => { document.getElementById(userChoice).classList.remove('red-glow')}, 300);
     console.log('lose');
@@ -43,7 +38,7 @@ function lose(userChoice, computerChoice) {
 function draw(userChoice, computerChoice) {
     userScore_span.innerHTML = userScore;
     computerScore_span.innerHTML = computerScore;
-    result_div.innerHTML = `${convertToWord(userChoice)} equals to ${convertToWord(computerChoice)}. draw`
+    result_div.innerHTML = `${userChoice} equals to ${computerChoice}. draw`
     document.getElementById(userChoice).classList.add('grey-glow');
     setTimeout(() => { document.getElementById(userChoice).classList.remove('grey-glow')}, 300);
     console.log('draw');
@@ -53,19 +48,19 @@ function draw(userChoice, computerChoice) {
 function game(userChoice) {
     const computerChoice = getComputerChoice();
     switch (userChoice + computerChoice) {
-        case "rs":
-        case "pr":
-        case "sp":
+        case "rockscissors":
+        case "paperrock":
+        case "scissorspaper":
             win(userChoice, computerChoice);
             break;
-        case "rp":
-        case "ps":
-        case "sr":
+        case "rockpaper":
+        case "paperscissors":
+        case "scissorsrock":
             lose(userChoice, computerChoice);
             break;
-        case "rr":
-        case "pp":
-        case "ss":
+        case "rockrock":
+        case "paperpaper":
+        case "scissorsscissors":
             draw(userChoice, computerChoice);
             break;
 }
@@ -73,15 +68,15 @@ function game(userChoice) {
 
 function main() {
 rock_div.addEventListener('click', function() {
-    game("r");
+    game("rock");
 });
 
 paper_div.addEventListener('click', function() {
-    game("p");
+    game("paper");
 });
 
 scissors_div.addEventListener('click', function() {
-    game("s");
+    game("scissors");
 });
 }
 main();
