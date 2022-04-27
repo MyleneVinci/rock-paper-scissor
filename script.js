@@ -8,6 +8,12 @@ const rock_div = document.getElementById("rock");
 const paper_div = document.getElementById("paper");
 const scissors_div = document.getElementById("scissors");
 
+const convertToFrench = (word) => {
+        if ( word === "rock") return "Pierre";
+        if ( word === "paper") return "Papier";
+        return "Ciseaux";
+    }
+
 const getComputerChoice = () => {
     const choices = ['rock', 'paper', 'scissors'];
     const randomNumber = Math.floor(Math.random() * 3);
@@ -19,7 +25,7 @@ const win = (userChoice, computerChoice) => {
     userScore++;
     userScore_span.innerHTML = userScore;
     computerScore_span.innerHTML = computerScore;
-    result_div.innerHTML = `${userChoice} beats ${computerChoice}. you win`
+    result_div.innerHTML = `Tu as choisi ${convertToFrench(userChoice)}, ton adversaire a choisi ${convertToFrench(computerChoice)}. Tu as gagné !`
     document.getElementById(userChoice).classList.add('green-glow');
     setTimeout(() => { document.getElementById(userChoice).classList.remove('green-glow')}, 300);
     console.log('win');
@@ -29,7 +35,7 @@ const lose = (userChoice, computerChoice) => {
     computerScore++;
     userScore_span.innerHTML = userScore;
     computerScore_span.innerHTML = computerScore;
-    result_div.innerHTML = `${userChoice} loses to ${computerChoice}. you lost`
+    result_div.innerHTML = `Tu as choisi ${convertToFrench(userChoice)}, ton adversaire a choisi ${convertToFrench(computerChoice)}. Tu as perdu !`
     document.getElementById(userChoice).classList.add('red-glow');
     setTimeout(() => { document.getElementById(userChoice).classList.remove('red-glow')}, 300);
     console.log('lose');
@@ -38,7 +44,7 @@ const lose = (userChoice, computerChoice) => {
 const draw = (userChoice, computerChoice) => {
     userScore_span.innerHTML = userScore;
     computerScore_span.innerHTML = computerScore;
-    result_div.innerHTML = `${userChoice} equals to ${computerChoice}. draw`
+    result_div.innerHTML = `Tu as choisi ${convertToFrench(userChoice)}, ton adversaire a choisi ${convertToFrench(computerChoice)}. Egalité !`
     document.getElementById(userChoice).classList.add('grey-glow');
     setTimeout(() => { document.getElementById(userChoice).classList.remove('grey-glow')}, 300);
     console.log('draw');
