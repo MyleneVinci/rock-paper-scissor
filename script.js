@@ -8,14 +8,14 @@ const rock_div = document.getElementById("rock");
 const paper_div = document.getElementById("paper");
 const scissors_div = document.getElementById("scissors");
 
-function getComputerChoice() {
+const getComputerChoice = () => {
     const choices = ['rock', 'paper', 'scissors'];
     const randomNumber = Math.floor(Math.random() * 3);
     return choices[randomNumber];
 }
 
 
-function win(userChoice, computerChoice) {
+const win = (userChoice, computerChoice) => {
     userScore++;
     userScore_span.innerHTML = userScore;
     computerScore_span.innerHTML = computerScore;
@@ -25,7 +25,7 @@ function win(userChoice, computerChoice) {
     console.log('win');
 }
 
-function lose(userChoice, computerChoice) {
+const lose = (userChoice, computerChoice) => {
     computerScore++;
     userScore_span.innerHTML = userScore;
     computerScore_span.innerHTML = computerScore;
@@ -35,7 +35,7 @@ function lose(userChoice, computerChoice) {
     console.log('lose');
 }
 
-function draw(userChoice, computerChoice) {
+const draw = (userChoice, computerChoice) => {
     userScore_span.innerHTML = userScore;
     computerScore_span.innerHTML = computerScore;
     result_div.innerHTML = `${userChoice} equals to ${computerChoice}. draw`
@@ -45,7 +45,7 @@ function draw(userChoice, computerChoice) {
 }
 
 
-function game(userChoice) {
+const game = (userChoice) => {
     const computerChoice = getComputerChoice();
     switch (userChoice + computerChoice) {
         case "rockscissors":
@@ -66,18 +66,10 @@ function game(userChoice) {
 }
 }
 
-function main() {
-rock_div.addEventListener('click', function() {
-    game("rock");
-});
-
-paper_div.addEventListener('click', function() {
-    game("paper");
-});
-
-scissors_div.addEventListener('click', function() {
-    game("scissors");
-});
+const main = () => {
+    rock_div.addEventListener('click', () => game("rock"));
+    paper_div.addEventListener('click', () => game("paper"));
+    scissors_div.addEventListener('click', () => game("scissors"));
 }
 main();
 
