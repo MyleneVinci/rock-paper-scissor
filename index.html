@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissor</title>
+    <title>Pierre Papier Ciseaux</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Rock Paper Scissors</h1>
+        <h1>Pierre Papier Ciseaux</h1>
     </header>
     <div class="score-board">
-        <div id="user-label" class="badge">user</div>
-        <div id="computer-label" class="badge">comp</div>
+        <div id="user-label" class="badge">joueur</div>
+        <div id="computer-label" class="badge">ordinateur</div>
         <span id="user-score">0</span>:<span id="computer-score">0</span>
+        <button onclick='window.location.reload(false)'>Nouvelle partie</button>
     </div>
     <div class="result">
         <p>A toi de jouer !</p>
@@ -30,7 +31,8 @@
             <img src="assets/pictures/scissor.png" alt="scissors">
         </div>
     </div>
-    <div id="action-message"></div>
+    <p id="result-message"></p>
+    <p id="play-message"></p>
     <script src="script.js"></script>
 </body>
 </html> 

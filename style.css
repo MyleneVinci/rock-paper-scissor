@@ -27,6 +27,31 @@ img {
     height: 60px;
 }
 
+button {
+    background-color: white;
+    border: none;
+    border-radius: 12px;
+    text-transform: uppercase;
+    padding: 5px 2px;
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 0 6px rgb(192, 191, 191), 0 0 30px rgb(160, 159, 159);
+    width: 100px;
+    word-wrap: break-word;
+    cursor: pointer;
+    position: absolute;
+    right: -250px;
+    font-family: Asap, sans-serif;
+    outline: none;
+}
+
+button:active {
+    box-shadow: 0 2px rgb(219, 218, 218), 0 0 10px  rgb(235, 231, 231);
+    transform: translateY(7px);
+}
+
+
 .score-board {
     position: relative;
     border: 3px solid white;
@@ -35,9 +60,10 @@ img {
     width: 200px;
     margin: 20px auto;
     color: white;
-    font-size: 46px;
+    font-size: 60px;
     padding: 15px 20px;
     font-family: Asap, sans-serif;
+    box-shadow: 0 0 20px rgb(160, 159, 159);
 }
 
 .badge {
@@ -51,13 +77,13 @@ img {
 #user-label {
     position: absolute;
     top: 30px;
-    left: -25px;
+    left: -31px;
 }
 
 #computer-label {
     position: absolute;
     top: 30px;
-    right: -30px;
+    right: -45px;
 }
 
 .result {
@@ -82,6 +108,7 @@ img {
     display: inline-block;
     margin: 0 20px;
     transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgb(160, 159, 159);
 }
 
 .choice:hover {
@@ -89,12 +116,21 @@ img {
     background-color: #24272e;
 }
 
-#action-message {
+#result-message {
     text-align: center;
     color: white;
     font-family: Asap, sans-serif;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 50px;
+    margin-top: 20px;
+}
+
+#play-message {
+    text-align: center;
+    color: white;
+    font-family: Asap, sans-serif;
+    font-weight: bold;
+    font-size: 40px;
     margin-top: 20px;
 }
 
